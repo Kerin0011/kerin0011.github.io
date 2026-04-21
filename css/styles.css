@@ -1,0 +1,247 @@
+/* Variables de color para facilitar el mantenimiento */
+:root {
+    --primary-color: #0f172a;
+    --secondary-color: #3b82f6;
+    --accent-color: #8b5cf6;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --white: #ffffff;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+}
+
+/* Encabezado y Navegación */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 5%;
+    box-shadow: var(--shadow);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrado uniforme de los links */
+    gap: 30px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Secciones */
+main, section {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Hero Section / Sobre mí */
+#sobre-mi {
+    background: var(--white);
+    border-radius: 24px;
+    margin-top: 40px;
+    box-shadow: var(--shadow);
+    padding: 60px 40px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap-reverse;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text span {
+    color: var(--secondary-color);
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    object-fit: cover;
+    border: 8px solid var(--bg-light);
+    box-shadow: var(--shadow);
+    transition: border-radius 0.5s ease;
+}
+
+.profile-pic:hover {
+    border-radius: 50%;
+}
+
+#proyectos {
+    text-align: center;
+}
+/* Proyectos y Listas */
+#proyectos ul {
+    list-style: none;
+    padding: 0;
+    /* TASK 3: Sección de proyectos con Grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
+    gap: 25px;
+    justify-content: center;
+}
+
+
+
+
+#proyectos li {
+    background: var(--white);
+    margin: 0; /* Quitamos el margin para usar el gap del grid */
+    padding: 20px;
+    border-left: none;
+    border-bottom: 4px solid var(--secondary-color);
+    box-shadow: var(--shadow);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+#proyectos li:hover {
+    transform: translateY(-5px);
+}
+
+#proyectos li img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+#proyectos li a {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#proyectos li a:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+#contacto {
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--primary-color);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.social-btn i {
+    font-size: 1.2rem;
+}
+
+.social-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Galería de Mascotas (mascotas.html) */
+#galeria-mascotas {
+    /* TASK 4: Uso de Flexbox para organizar la galería en filas */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+#galeria-mascotas article {
+    background: var(--bg-light);
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    /* Definimos un ancho base para las tarjetas en el flex-container */
+    flex: 1 1 300px;
+    max-width: 350px;
+}
+
+#galeria-mascotas article:hover {
+    transform: translateY(-10px);
+}
+
+#galeria-mascotas img {
+    width: 100%;
+    height: 230px; 
+    object-fit: contain; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 50px;
+}
