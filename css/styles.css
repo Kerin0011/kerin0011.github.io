@@ -57,6 +57,21 @@ nav a:hover {
     border-bottom: 2px solid var(--secondary-color);
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 /* Sections */
 main,
 section {
@@ -276,19 +291,44 @@ section {
     }
 }
 
-/* Mobile: Pantallas pequeñas */
-@media (max-width: 600px) {
+/* Mobile: Dispositivos pequeños (menores a 600px) */
+@media (max-width: 850px) {
     header {
-        flex-direction: column;
-        text-align: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        flex-direction: row; /* Asegura que el h1 y el botón estén en la misma línea */
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa solo aquí */
     }
 
     nav ul {
+        display: none; /* Oculto por defecto en móvil */
         flex-direction: column;
-        gap: 15px;
-        margin-top: 15px;
+        position: absolute;
+        top: 100%; /* Se despliega justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        gap: 1rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+        z-index: 999;
     }
 
+    nav ul.active {
+        display: flex; /* Se muestra cuando el JS añade la clase 'active' */
+    }
+
+    /* Ajustes de cuadrícula para móviles */
     #proyectos ul {
         grid-template-columns: 1fr;
     }
